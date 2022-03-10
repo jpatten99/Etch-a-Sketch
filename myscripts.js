@@ -1,4 +1,5 @@
 
+
 //creates grid of divs
 for(let i = 1; i < 10; i++){
     const div = document.createElement("div");
@@ -23,6 +24,15 @@ for(let i = 1; i < 10; i++){
     })
     }
 }
+
+const btn = document.querySelector('#btn');
+btn.onclick = () => {
+    for(let i = 1; i < 10; i++){
+        for(let j = 0; j < 10; j++){
+            document.querySelector(`div.row${i}-${j}`).style.background = "#FFFFFF";
+        }
+    }       
+};
 
 
 
