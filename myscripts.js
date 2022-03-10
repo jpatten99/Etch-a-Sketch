@@ -1,5 +1,5 @@
 
-
+let resoultion = Number(window.prompt('Enter resoultion desired!', 'lowest: 1 ---> highest: 100'));
 //creates grid of divs
 for(let i = 1; i < 10; i++){
     const div = document.createElement("div");

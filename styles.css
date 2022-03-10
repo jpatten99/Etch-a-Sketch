@@ -5,7 +5,8 @@ html, body {
 
 body{
     display: flex;
-    justify-content: center;
+    flex-direction: column-reverse;
+    justify-content: space-around;
     align-items: center;
 }
 
