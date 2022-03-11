@@ -1,6 +1,12 @@
 
 let resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
-createGrid(resolution);
+while(1){
+    if(resolution > 0 && resolution <= 100){
+        createGrid(resolution);
+        break;
+    }
+    resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
+}
 
 //creates grid of divs
 function createGrid(resolution){
@@ -37,25 +43,14 @@ btn.onclick = () => {
 
     while ( el.firstChild ) el.removeChild( el.firstChild );
     resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
-    createGrid(resolution);
-   
-};
-
-
-
-
-/**************************************************************************************************/
-/*const btn = document.querySelector('#btn');
-btn.onclick = () => {
-    //let resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
-    for(let i = 1; i <= resolution; i++){
-        for(let j = 1; j <= resolution; j++){
-            document.querySelector(`div.row${i}-${j}`).style.background = "#FFFFFF";
-           
+    while(1){
+        if(resolution > 0 && resolution <= 100){
+            createGrid(resolution);
+            break;
         }
-    } 
-    //createGrid(resolution);
-
-   
+        resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
+    }
 };
-*/
+
+
+
