@@ -1,58 +1,61 @@
 
-let resoultion = Number(window.prompt('Enter resoultion desired!', 'lowest: 1 ---> highest: 100'));
+let resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
+createGrid(resolution);
+
 //creates grid of divs
-for(let i = 1; i < 10; i++){
-    const div = document.createElement("div");
-    div.classList.add('row' + i + '-0');
-    div.style.width = "10px";
-    div.style.height = "10px";
-    document.getElementById("container").appendChild(div);
-    document.querySelector(`div.row${i}-0`).addEventListener(
-        "mouseover", function () {
-    document.querySelector(`div.row${i}-0`).style.background = "#000000";
-})
-    
-    for(let j = 1; j < 10; j++){
+function createGrid(resolution){
+    for(let i = 1; i <= resolution; i++){
         const div = document.createElement("div");
-        div.style.width = "10px";
-        div.style.height = "10px";
-        div.classList.add('row' + i + '-' + j);
+        div.classList.add('row' + i + '-1');
+        div.style.width = (500/resolution) + 'px';
+        div.style.height = (500/resolution) + 'px';
         document.getElementById("container").appendChild(div);
-        document.querySelector(`div.row${i}-${j}`).addEventListener(
+        document.querySelector(`div.row${i}-1`).addEventListener(
             "mouseover", function () {
-        document.querySelector(`div.row${i}-${j}`).style.background = "#000000";
-    })
+                document.querySelector(`div.row${i}-1`).style.background = "#000000";
+            }
+        )
+        
+        for(let j = 1; j < resolution; j++){
+            const div = document.createElement("div");
+            div.style.width = (500/resolution) + 'px';
+            div.style.height = (500/resolution) + 'px';
+            div.classList.add('row' + i + '-' + (j+1));
+            document.getElementById("container").appendChild(div);
+            document.querySelector(`div.row${i}-${j+1}`).addEventListener(
+                "mouseover", function () {
+                    document.querySelector(`div.row${i}-${j+1}`).style.background = "#000000";
+                }
+            )
+        }
     }
 }
 
 const btn = document.querySelector('#btn');
 btn.onclick = () => {
-    for(let i = 1; i < 10; i++){
-        for(let j = 0; j < 10; j++){
-            document.querySelector(`div.row${i}-${j}`).style.background = "#FFFFFF";
-        }
-    }       
+    var el = document.getElementById('container');
+
+    while ( el.firstChild ) el.removeChild( el.firstChild );
+    resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
+    createGrid(resolution);
+   
 };
 
 
 
 
-/*for(let i = 1; i < 10; i++){
-    document.querySelector(`div.row${i}`).addEventListener(
-        "mouseover", function () {
-    document.querySelector(`div.row${i}`).style.background = "#000000";
-})
-    for(let j = 1; j < 10; j++){
-        document.querySelector(`div.column${j}`).addEventListener(
-            "mouseover", function () {
-        document.querySelector(`div.column${j}`).style.background = "#000000";
-    })
-    }
-}
+/**************************************************************************************************/
+/*const btn = document.querySelector('#btn');
+btn.onclick = () => {
+    //let resolution = Number(window.prompt('Enter resolution desired!', 'lowest: 1 ---> highest: 100'));
+    for(let i = 1; i <= resolution; i++){
+        for(let j = 1; j <= resolution; j++){
+            document.querySelector(`div.row${i}-${j}`).style.background = "#FFFFFF";
+           
+        }
+    } 
+    //createGrid(resolution);
 
-
-  
-     
+   
+};
 */
-
-
